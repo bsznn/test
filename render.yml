@@ -10,7 +10,7 @@ services:
       - key: PORT
         value: 10000
       # ❌ Supprimez tous les fromService
-      - key: BACKEND_URL
+      - key: REACT_APP_BACKEND_URL
         sync: false  # À définir manuellement
       - key: NOTIFI_SERVICE_URL
         sync: false  # À définir manuellement
