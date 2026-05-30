@@ -14,7 +14,7 @@ const Login = () => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        `${import.meta.env.VITE_API_BASE_URL}/auth/login`,
+        `${process.env.BACKEND_URL}/auth/login`,
         credentials
       );
       const { token, role, username } = response.data;

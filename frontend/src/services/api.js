@@ -1,7 +1,7 @@
 // src/services/api.js
 import axios from 'axios';
 
-const API_BASE_URL = `${import.meta.env.VITE_API_BASE_URL}`;
+const API_BASE_URL = `${process.env.BACKEND_URL}`;
 
 export const fetchProducts = () => axios.get(`${API_BASE_URL}/products`);
 
