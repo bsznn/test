@@ -12,6 +12,10 @@ const app = express();
 // Middleware pour analyser les requêtes JSON
 app.use(express.json());
 
+app.get('/', (req, res) => {
+  res.json({ status: 'Gateway opérationnel', routes: ['/notify', '/update-stock'] });
+});
+
 // Routes principales pour chaque microservice
 //app.use('/auth', authProxy);
 app.use('/notify', notifiProxy);

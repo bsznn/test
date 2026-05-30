@@ -9,13 +9,16 @@ services:
     envVars:
       - key: PORT
         value: 10000
-      # ❌ Supprimez tous les fromService
-      - key: REACT_APP_BACKEND_URL
-        sync: false  # À définir manuellement
       - key: NOTIFI_SERVICE_URL
-        sync: false  # À définir manuellement
+        fromService:
+          name: notifications
+          type: web
+          property: host
       - key: STOCK_SERVICE_URL
-        sync: false  # À définir manuellement
+        fromService:
+          name: stock-management
+          type: web
+          property: host
 
   - name: backend
     type: web
@@ -63,11 +66,13 @@ services:
         sync: false
 
   - name: frontend
-    type: web
-    runtime: static
+    type: static
     rootDir: ./frontend
     buildCommand: npm install && npm run build
     staticPublishPath: ./build
     envVars:
       - key: REACT_APP_GATEWAY_URL
-        sync: false
+        fromService:
+          name: gateway
+          type: web
+          property: host
