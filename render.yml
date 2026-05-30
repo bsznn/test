@@ -10,15 +10,9 @@ services:
       - key: PORT
         value: 10000
       - key: NOTIFI_SERVICE_URL
-        fromService:
-          name: notifications
-          type: web
-          property: host
+        sync: false
       - key: STOCK_SERVICE_URL
-        fromService:
-          name: stock-management
-          type: web
-          property: host
+        sync: false
 
   - name: backend
     type: web
@@ -73,7 +67,4 @@ services:
     staticPublishPath: ./build
     envVars:
       - key: REACT_APP_GATEWAY_URL
-        fromService:
-          name: gateway
-          type: web
-          property: host
+        sync: false
