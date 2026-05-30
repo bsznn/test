@@ -28,7 +28,9 @@ services:
         sync: false
       - key: JWT_SECRET
         generateValue: true
-
+      - key: FRONTEND_URL
+        sync: false
+        
   - name: notifications
     type: web
     runtime: node

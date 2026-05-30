@@ -7,8 +7,9 @@ const connectDB = require('./config/db');
 const app = express();
 connectDB();
 
-app.use(cors());
-app.use(express.json());
+app.use(cors({
+  origin: process.env.FRONTEND_URL || '*',
+}));app.use(express.json());
 
 app.get('/', (req, res) => {
   res.json({ status: 'API en ligne' });
