@@ -9,6 +9,11 @@ connectDB();
 
 app.use(cors());
 app.use(express.json());
+
+app.get('/', (req, res) => {
+  res.json({ status: 'API en ligne' });
+});
+
 app.use('/api/products', require('./routes/productRoutes'));
 app.use('/api/orders', require('./routes/orderRoutes'));
 app.use('/api/auth', require('./routes/authRoutes'));
